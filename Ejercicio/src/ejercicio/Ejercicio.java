@@ -3,6 +3,9 @@ package ejercicio;
 import java.util.Scanner;
 public class Ejercicio {
 
+    private static final int ITERACIONES = 10;
+     
+
    public static void main(String[] args) {
           while (true) {
             System.out.println("\n\n\n\n");
@@ -147,12 +150,19 @@ public class Ejercicio {
             
             Scanner scan = new Scanner(System.in);
             opcion = scan.nextInt();
+            double x = 0.0;
+            double resultado = 0.0;
 
             switch (opcion) {
                 case 1:
-                    
+                    System.out.print("\n Ingrese un número: ");
+                    x = scan.nextDouble();
+                    resultado = seno(x);
+                    System.out.println("\nSeno(" + x + ") = " + resultado);
                     break; 
                 case 2:
+                    System.out.print("\n Ingrese un número: ");
+                    x = scan.nextDouble();
                     
                     break;
                 case 3:
@@ -166,7 +176,62 @@ public class Ejercicio {
             }
         }
     }
+
+    private static double potencia(double x, double y){
+        double resultado = 1;
+
+        for(int i = 0; i<y; i++){
+            resultado = resultado*x;
+        
+        }
+
+        return resultado;
+    }
+   
     
+    private static double factorial(double x){
+        double resultado = 1;
+
+        for(double i = x; i>1; i-- ){
+            resultado = resultado * i;
+        
+        }
+
+        return resultado;
+
+    }
+
+
+
+    private static double sumatoria(int x, int y){
+        int resultado = 0;
+        
+        for(int i = 0; i<y; i++){
+
+            resultado = resultado+x;
+
+        }
+
+        return resultado;
+    }
+
+    private static double seno(double x){
+
+
+        double resultado = 0;
+        
+        for(int i = 0; i<ITERACIONES; i++){
+
+            double numerador = potencia(-1,i)*potencia(x,2*i+1);
+            double denominador = factorial(2*i+1);
+            resultado +=(numerador/denominador);
+        }
+
+        return resultado;
+
+    }
+
+
     public static void Estadística() {
         boolean seguirEnMenu = true;
         while (seguirEnMenu) {
@@ -207,7 +272,7 @@ public class Ejercicio {
 
                     break; 
                 case 2:
-                    
+                    System.out.println("");
                     break;
                 case 3:
                     
@@ -252,5 +317,3 @@ public class Ejercicio {
         }
     }
 }
-    
-
